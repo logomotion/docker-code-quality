@@ -30,11 +30,7 @@ RUN composer global require 'squizlabs/php_codesniffer=3.3.0'
 
 # Install Symfony PHPCS standard.
 RUN composer global require 'escapestudios/symfony2-coding-standard=3.4.1'
-RUN /root/.composer/vendor/bin/phpcs --config-set installed_paths /root/.composer/vendor/escapestudios/symfony2-coding-standard/Symfony
-
-# Install Drupal PHPCS standard.
-RUN composer global require 'drupal/coder=8.3.1'
-RUN /root/.composer/vendor/bin/phpcs --config-set installed_paths /root/.composer/vendor/drupal/coder/coder_sniffer
+RUN /root/.composer/vendor/bin/phpcs --config-set installed_paths /root/.composer/vendor/escapestudios/symfony2-coding-standard
 
 # Install PHPMD requirements.
 RUN composer global require 'phpmd/phpmd=2.6.0'
