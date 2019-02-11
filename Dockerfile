@@ -51,5 +51,10 @@ RUN mkdir -p /code
 # Register composer vendor bin directory.
 ENV PATH=$PATH:/root/.composer/vendor/bin/
 
+# Install NodeJS Requirement
+
+RUN apk add --update nodejs nodejs-npm
+RUN npm install -g standard
+
 WORKDIR /code
 VOLUME /code
