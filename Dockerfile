@@ -51,10 +51,23 @@ RUN mkdir -p /code
 # Register composer vendor bin directory.
 ENV PATH=$PATH:/root/.composer/vendor/bin/
 
-# Install NodeJS Requirement
 
+    
+# Install NodeJS Requirements
 RUN apk add --update nodejs nodejs-npm
-RUN npm install -g standard
+RUN apk add --no-cache --virtual .gyp \
+        python \
+        make \
+        g++
+RUN npm install -g yarn
+
+# Install javascript standard
+RUN yarn global add standard
+
+# Install javascript jscpd
+RUN yarn global add jscpd
+
+# Install yarn
 
 WORKDIR /code
 VOLUME /code
